@@ -1,74 +1,132 @@
 .footer {
-    display: flex;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    padding: 60px 0 40px;
-    background-color: #3b455a;
+  display: flex;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  padding: 60px 0 40px;
+  background-color: #3b455a;
 }
 
 .footer-column {
-    flex: 1; /* Allow each column to take equal width */
-    padding: 0 20px; /* Padding on the sides */
-    color: white;
-    margin-left: 90px;
-    line-height: 1.6;
+  flex: 1; /* Allow each column to take equal width */
+  padding: 0 20px; /* Padding on the sides */
+  color: white;
+  margin-left: 90px;
+  line-height: 1.6;
 }
 
-
-.footer-column p{
-    color:rgba(213, 213, 213, 0.6);
-};
+.footer-column p {
+  color: rgba(213, 213, 213, 0.6);
+}
 
 .footer-logo {
-    max-width: 200px; /* Set a max width for the logo */
-    margin-bottom: 5px; /* Space below the logo */
+  max-width: 200px; /* Set a max width for the logo */
+  margin-bottom: 5px; /* Space below the logo */
 }
 
 .social-icons {
-    display: flex; /* Use flexbox for horizontal layout */
-    gap: 18px; /* Space between icons */
-    padding-top:5%;
-   
-   
+  display: flex; /* Use flexbox for horizontal layout */
+  gap: 18px; /* Space between icons */
+  padding-top: 5%;
 }
 
 .icon {
-    font-size: 20px; /* Size of the icons */
-    color: white;
- }
+  font-size: 20px; /* Size of the icons */
+  color: white;
+}
 
 .icon-circle {
-    display: flex; /* Center the icon */
-    justify-content: center; /* Center the icon horizontally */
-    align-items: center; /* Center the icon vertically */
-    width: 50px; /* Width of the circle */
-    height: 50px; /* Height of the circle */
-    border: 2px solid white; /* White border */
-    border-radius: 50%; /* Make it a circle */
-    background-color: transparent; /* Make the background transparent */
-    transition: background-color 0.3s; /* Smooth transition for hover */
+  display: flex; /* Center the icon */
+  justify-content: center; /* Center the icon horizontally */
+  align-items: center; /* Center the icon vertically */
+  width: 50px; /* Width of the circle */
+  height: 50px; /* Height of the circle */
+  border: 2px solid white; /* White border */
+  border-radius: 50%; /* Make it a circle */
+  background-color: transparent; /* Make the background transparent */
+  transition: background-color 0.3s; /* Smooth transition for hover */
 }
 
 h3 {
-    margin-bottom: 10px; /* Space below headings */
+  margin-bottom: 10px; /* Space below headings */
 }
 
 ul {
-    list-style-type: none; /* Remove bullet points */
-    padding: 0; /* Remove padding */
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove padding */
 }
 
 ul li {
-    margin: 5px 0; /* Space between list items */
+  margin: 5px 0; /* Space between list items */
 }
 
 ul li a {
-   color: rgba(213, 213, 213, 0.6) !important;
-    text-decoration: none; /* Remove underline */
+  color: rgba(213, 213, 213, 0.6) !important;
+  text-decoration: none; /* Remove underline */
 }
 
 ul li a:hover {
-    text-decoration: underline; /* Underline on hover */
+  text-decoration: underline; /* Underline on hover */
 }
 
+/* Responsive Styles */
+
+/* Medium screens (tablets and small desktops) */
+@media (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 0 20px;
+  }
+
+  .footer-column {
+    margin-left: 0;
+    padding: 0 15px;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .footer-logo {
+    max-width: 150px;
+  }
+
+  .icon-circle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .icon {
+    font-size: 18px;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 480px) {
+  .footer {
+    padding: 30px 0 15px;
+  }
+
+  .footer-column h3 {
+    font-size: 18px;
+  }
+
+  .footer-column p,
+  ul li a {
+    font-size: 14px;
+  }
+
+  .social-icons {
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .icon-circle {
+    width: 35px;
+    height: 35px;
+  }
+
+  .icon {
+    font-size: 16px;
+  }
+}
