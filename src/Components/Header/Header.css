@@ -43,7 +43,7 @@
 .nav-links {
   display: flex; /* To arrange links horizontally */
   gap: 15px; /* Space between links */
-  margin-left: 450px; /* Adjust as needed */
+  margin-left: 350px; /* Adjust as needed */
   align-items: center;
 }
 
@@ -77,6 +77,7 @@
 }
 
 /* Responsive styles */
+
 @media (max-width: 768px) {
   .navbar {
     padding: 15px;
@@ -99,8 +100,10 @@
   }
 
   .login-sign-in {
-    font-size: 14px; /* Lower font size for smaller screens */
-    padding: 4px 20px; /* Adjust padding for smaller screens */
+    font-size: 14px;
+    padding: 4px 20px;
+    margin-left: 0; /* Reset margin-left */
+    margin-right: 10px; /* Add a smaller right margin */
   }
 }
 
@@ -119,7 +122,9 @@
   }
 
   .login-sign-in {
-    font-size: 12px; /* Further reduce font size for very small screens */
-    padding: 3px 15px; /* Further reduce padding for very small screens */
+    font-size: 12px;
+    padding: 3px 15px;
+    margin: 10px 0 0 0; /* Center align and remove side margins */
+    margin-bottom: 7px;
   }
 }
