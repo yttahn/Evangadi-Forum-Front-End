@@ -1,0 +1,156 @@
+/* General container for the entire question list */
+.question_list_container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Top bar with "Ask Question" and welcome message */
+.topBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #ffffff; /* White background for top bar */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.askQuestionBtn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, transform 0.2s; /* Transition for button */
+}
+
+.askQuestionBtn:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.welcomeMessage {
+  font-size: 16px;
+  text-align: end;
+  width: 30%;
+  margin-right: 90px;
+}
+
+.username {
+  color: #ff5c5e;
+  font-weight: bold; /* Make the username bold */
+}
+
+/* Search bar styling */
+.searchBar {
+  margin-bottom: 20px; /* Spacing below the search bar */
+}
+
+.searchBar input {
+  width: 85%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-left: 60px;
+  transition: border-color 0.3s ease; /* Transition for border color */
+}
+
+.searchBar input:focus {
+  border-color: #007bff; /* Highlight border on focus */
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); /* Glow effect */
+}
+
+/* Styling each question item */
+.questionItems {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.questionItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e6e6e6;
+  padding: 15px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Transition for background color */
+}
+
+.questionItem:hover {
+  background-color: #f1f1f1; /* Light background on hover */
+}
+
+.user {
+  display: flex;
+  align-items: center; /* Center vertically */
+  width: auto; /* Allow flexibility */
+}
+
+.userIcon {
+  font-size: 40px;
+  color: #0056b3;
+  margin-right: 20px;
+}
+
+.questionContent {
+  flex: 1; /* Flex-grow for proper spacing */
+}
+
+.questionTitle {
+  font-size: 16px;
+  margin-bottom: 5px;
+  color: black;
+  padding-left: 50px;
+  transition: color 0.3s ease; /* Transition for text color */
+}
+
+.questionTitle:hover {
+  color: #007bff; /* Change color on hover */
+}
+
+.questionAuthor {
+  color: #666;
+  font-size: 14px;
+}
+
+/* Arrow icon */
+.arrowIcon {
+  font-size: 24px;
+  color: #0056b3;
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+  .topBar {
+    flex-direction: column; /* Stack elements on small screens */
+    align-items: flex-start;
+    margin-bottom: 10px; /* Adjust margin */
+  }
+
+  .welcomeMessage {
+    margin-right: 0; /* Remove right margin on small screens */
+  }
+
+  .searchBar input {
+    margin-left: 0; /* Center input field */
+  }
+
+  .questionItem {
+    flex-direction: column; /* Stack user and content vertically */
+    align-items: flex-start; /* Align items to the start */
+    padding: 10px; /* Adjust padding */
+  }
+
+  .userIcon {
+    margin-bottom: 10px; /* Space below icon */
+  }
+
+  .questionContent {
+    width: 100%; /* Full width for content */
+  }
+}

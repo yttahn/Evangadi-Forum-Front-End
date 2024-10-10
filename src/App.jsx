@@ -10,6 +10,7 @@ import Footer from "./component/Footer/Footer.jsx";
 import QuestionDetail from "./Pages/Question/QuestionDetail.jsx";
 import Howitworks from "./component/Howitworks/Howitworks.jsx";
 import ForgotPassword from "./Pages/LogIn/ForgotPassword.jsx";
+import AllQuestions from "./Pages/Question/AllQuestions.jsx"
 
 // Create a context for the application state (user, etc.)
 export const AppState = createContext();
@@ -35,7 +36,8 @@ function App() {
             Authorization: `Bearer ${token}`,
           },
         });
-        setUser({ username: data.username, user_id: data.user_id }); // Store user data
+        setUser({ username: data.username, user_id: data.userid }); // Store user data
+        //console.log(users)
       } catch (error) {
         console.error(
           "User not authenticated:",
@@ -47,7 +49,7 @@ function App() {
       }
     }
     checkUser(); // Run checkUser on component mount
-  }, []);
+  }, [token]);
 
   if (loading) {
     return <div>Loading...</div>; // Show loading message while checking user
@@ -64,14 +66,15 @@ function App() {
         <Route path="/register" element={<RegisterPage />} />
         {/* Protect the AskQuestion route; user must be logged in */}
         <Route
-          path="/akquestion"
+          path="/askquestion"
           element={users ? <AskQuestion /> : <LoginPage />}
         />
         <Route
           path="/single-questions/:question_id"
           element={<QuestionDetail />}
         />
-      </Routes>
+        <Route path="/questions" element={<AllQuestions />} />
+      </ Routes>
     </AppState.Provider>
   );
 }

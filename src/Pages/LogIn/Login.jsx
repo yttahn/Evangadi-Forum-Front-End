@@ -35,8 +35,10 @@ function Login() {
       const { data } = await axios.post("/users/login", { email, password });
 
       localStorage.setItem("token", data.token);
-      alert("Login successful!");
-      navigate("/"); // Redirect to the desired page after login
+      //alert("Login successful!");
+
+      //navigate("/"); // Redirect to the desired page after login
+      navigate("/askquestion"); // Navigate if user exists
     } catch (error) {
       console.error("Login failed: ", error.response || error.message);
       setErrorMessage(

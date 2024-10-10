@@ -34,14 +34,14 @@ function AskQuestion() {
       return;
     }
 
-    const question_id = uuidv4(); // Generate a new question ID
+    //const question_id = uuidv4(); // Generate a new question ID
 
     try {
       const { data } = await axios.post(
-        "/question/askQuestion",
+        "/question/ask-question",
         {
-          question_id,
-          user_id,
+          //question_id,
+          //user_id,
           description,
           title,
         },

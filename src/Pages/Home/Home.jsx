@@ -9,18 +9,20 @@ import Footer from "../../component/Footer/Footer";
 function Home() {
   const { users } = useContext(AppState); // Access users from context
   const navigate = useNavigate(); // For navigating to other routes
+  console.log("**")
+  console.log(users)
 
   // Function to handle Join Now button click
   const handleJoinNowClick = () => {
-    if (!users?.user_id || !users?.username) {
+        if (!users?.user_id || !users?.username) {
       console.error("User object is undefined or incomplete");
-      navigate("/login"); // Redirect to login if user is not logged in
+      //navigate("/login"); // Redirect to login if user is not logged in
       return;
     }
 
     console.log("Current user state:", users.username);
 
-    navigate("/AskQuestion"); // Navigate if user exists
+    navigate("/askquestion"); // Navigate if user exists
   };
 
   return (
