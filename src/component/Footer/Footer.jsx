@@ -23,7 +23,7 @@ function Footer() {
           <div className={classes.footer_links}>
             <h2>Useful Links</h2>
             <li>
-              <Link to="/Landing">How it works</Link>
+              <Link to="/howitworks">How it works</Link>
             </li>
             <li>
               <Link to="/">Terms of Service</Link>

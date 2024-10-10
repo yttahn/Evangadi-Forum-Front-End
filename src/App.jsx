@@ -58,13 +58,13 @@ function App() {
     <AppState.Provider value={{ users, setUser }}>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/Howitworks" element={<Howitworks />} />
+        <Route path="/howitworks" element={<Howitworks />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/forgot-password" element={<ForgotPassword />} />
         <Route path="/register" element={<RegisterPage />} />
         {/* Protect the AskQuestion route; user must be logged in */}
         <Route
-          path="/AskQuestion"
+          path="/akquestion"
           element={users ? <AskQuestion /> : <LoginPage />}
         />
         <Route

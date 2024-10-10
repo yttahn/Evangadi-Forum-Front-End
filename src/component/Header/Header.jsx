@@ -57,7 +57,7 @@ function Header() {
               </Link>
             </li>
             <li>
-              <Link to={"/Landing"} className={classes.nav_button}>
+              <Link to={"/howitworks"} className={classes.nav_button}>
                 How it works
               </Link>
             </li>

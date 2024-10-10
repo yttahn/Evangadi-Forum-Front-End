@@ -12,8 +12,8 @@ const Header = ({ showLinks }) => {
             <div className="nav-links">
                 {showLinks && (
                     <>
-                        <Link to="/">Home</Link>
-                        <Link to="/how-it-works">How It Works</Link>
+                        <Link to="/">HomeJJJ</Link>
+                        <Link to="/howitworks">How It Works</Link>
                     </>
                 )}
             </div>
