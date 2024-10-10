@@ -53,7 +53,7 @@ const AllQuestion = () => {
         <Header />
         <div className={classes.question_list_container}>
           <div className={classes.topBar}>
-            <Link to="/QuestionDetail">
+            <Link to="/askquestion">
               <button className={classes.askQuestionBtn}>Ask Question</button>
             </Link>
 

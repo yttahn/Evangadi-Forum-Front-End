@@ -27,6 +27,7 @@ const Answers = () => {
         setError(
           error.response?.data?.message || "An unexpected error occurred."
         );
+        //console.log(error)
         setLoading(false); // Stop loading if an error occurs
       }
     };
@@ -42,7 +43,7 @@ const Answers = () => {
     <div>
       <h3>Answers From The Community</h3>
       {error ? (
-        <p>{error}</p>
+        <p>No Answer Could Be Found!</p>
       ) : (
         <ul className={Classes.answer_container}>
           {answers.map((answer) => (

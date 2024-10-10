@@ -9,7 +9,6 @@ import classes from "./singleQuestion.module.css";
 const SingleQuestion = () => {
   const { users } = useContext(AppState); // Get user from context
   const { question_id } = useParams(); // Get the question_id from URL
-  console.log(question_id)
   const [question, setQuestion] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

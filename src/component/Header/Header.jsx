@@ -52,7 +52,7 @@ function Header() {
         <div className={classes.Sign_in}>
           <ul className={classes.nav_links}>
             <li>
-              <Link to={"/"} className={classes.nav_button}>
+              <Link to={"/questions"} className={classes.nav_button}>
                 Home
               </Link>
             </li>

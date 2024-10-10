@@ -56,7 +56,7 @@ function AskQuestion() {
       setError(""); // Reset error message
       titleDom.current.value = ""; // Clear the title input
       descDom.current.value = ""; // Clear the description input
-      navigate("/"); // Redirect to the homepage
+      navigate("/questions"); // Redirect to the homepage
     } catch (err) {
       setError(
         err?.response?.data?.msg || "An error occurred. Please try again."

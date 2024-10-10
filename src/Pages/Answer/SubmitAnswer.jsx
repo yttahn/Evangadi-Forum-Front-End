@@ -1,12 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "../../axios/axiosConfig";
 import classes from "./SubmitAnswer.module.css"; // Corrected the import
 import Answers from "../Answer/Answer"; // Assuming you have an Answers component
+import { AppState } from "../../../src/App";
 
-const SubmitAnswer = ({ answer_id }) => {
+const SubmitAnswer = ({ question_id }) => {
   // Receive question_id as prop
   const [answer, setAnswer] = useState("");
   const [responseMessage, setResponseMessage] = useState("");
+  const { users } = useContext(AppState);
+  const user_id = users?.user_id; // Safely accessing user_id
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -14,11 +18,17 @@ const SubmitAnswer = ({ answer_id }) => {
     try {
       const token = localStorage.getItem("token"); // Fetch the auth token
       const response = await axios.post(
-        `/answers/edit-answer${answer_id}`,
+        `/answers/single-answer/`,
 
         {
-          answer_id,
+          question_id,
           answer,
+          user_id
+
+	//"question_id":6,
+	//"answer":"answer",
+	//"user_id":4
+
         },
         {
           headers: {
@@ -37,7 +47,6 @@ const SubmitAnswer = ({ answer_id }) => {
 
   return (
     <div className={classes.answer_container}>
-      <Answers /> {/* Assuming you meant this component */}
       <form onSubmit={handleSubmit} className={classes.answer_form}>
         <textarea
           className={classes.answer_input}
