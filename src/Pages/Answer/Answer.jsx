@@ -16,7 +16,7 @@ const Answers = () => {
     const fetchAnswers = async () => {
       try {
         const token = localStorage.getItem("token"); // Fetch the auth token
-        const response = await axios.get(`answers/all-answers${question_id}`, {
+        const response = await axios.get(`answers/all-answers/${question_id}`, {
           headers: {
             Authorization: `Bearer ${token}`, // Pass token in the headers
           },
