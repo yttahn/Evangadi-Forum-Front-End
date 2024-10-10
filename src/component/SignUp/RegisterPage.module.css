@@ -1,0 +1,9 @@
+.background_image {
+ background-image: url("../../image/bg-svg.svg");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+}
+.About {
+  margin-left: 52%;
+}

@@ -1,0 +1,123 @@
+/* Container Styling */
+.forgotPasswordContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh; /* Adjust based on header/footer size */
+  background-color: #f8f9fa;
+  padding: 20px;
+}
+
+.forgotPasswordContent {
+  background-color: white;
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Heading and Paragraph */
+.forgotPasswordContent h2 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.forgotPasswordContent p {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* Input Field Styling */
+.forgotPasswordContent input[type="email"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.forgotPasswordContent input[type="email"]:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+/* Button Styling */
+.forgotPasswordContent button {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.forgotPasswordContent button:hover {
+  background-color: #0056b3;
+}
+
+.forgotPasswordContent button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+/* Success and Error Messages */
+.errorMessage {
+  color: red;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.successMessage {
+  color: green;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+/* Back to Login Button */
+.backButton {
+  margin-top: 20px;
+  background-color: transparent;
+  color: #007bff;
+  border: 1px solid #007bff;
+  padding: 10px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.backButton:hover {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  .forgotPasswordContent {
+    padding: 20px;
+  }
+
+  .forgotPasswordContent h2 {
+    font-size: 20px;
+  }
+
+  .forgotPasswordContent p {
+    font-size: 14px;
+  }
+
+  .forgotPasswordContent button,
+  .backButton {
+    font-size: 14px;
+  }
+}

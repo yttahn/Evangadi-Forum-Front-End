@@ -1,0 +1,53 @@
+
+.forum_container {
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  padding: 20px;
+  background-image: url("../../image/bg-svg.svg");
+  background-size: cover; /* Ensures the image covers the entire area */
+  background-repeat: no-repeat; /* Prevents repeating of the image */
+  background-position: center center; /* Centers the image */
+}
+
+.text_content {
+  flex: 1; /* Allow the text section to take space */
+  text-align: center; /* Center the text */
+  margin-right: 20px; /* Space between text and image */
+  font-size: 24px;
+  margin: 50px;
+}
+
+.image_content {
+  flex: 1; /* Allow the image section to take space */
+  display: flex;
+  justify-content: center; /* Center the image horizontally */
+}
+
+.image_content img {
+  max-width: 100%; /* Ensure image is responsive */
+  height: auto; /* Maintain aspect ratio */
+}
+
+button {
+  padding: 10px 20px; /* Add some padding */
+  background-color: #eb8432; /* Button color */
+  color: #fff; /* Text color */
+  border: none; /* Remove border */
+  border-radius: 25px; /* Oval shape */
+  cursor: pointer; /* Change cursor on hover */
+  font-size: 24px;
+}
+
+button:hover {
+  background-color: #333; /* Change color on hover */
+}
+.join_now {
+  background-color: #eb8432; /* Button color */
+  color: #fff; /* Text color */
+  border: none; /* Remove border */
+  border-radius: 25px; /* Oval shape */
+  cursor: pointer; /* Change cursor on hover */
+  transition: background-color 0.3s; /* Smooth transition */
+  font-size: 24px;
+}

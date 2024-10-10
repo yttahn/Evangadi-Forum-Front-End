@@ -1,0 +1,154 @@
+.loginContainer {
+  display: flex; /* Use flexbox for layout */
+  padding: 20px;
+  background-image: url("../../image/bg-svg.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh; /* Full height */
+}
+
+.loginContent {
+  display: flex; /* Flexbox for side-by-side layout */
+  flex: 1;
+  max-width: 950px; /* Maximum width for content */
+  margin: auto; /* Center the content */
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1); /* Soft shadow for entire content */
+  border-radius: 10px;
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.9
+  ); /* Slightly transparent background */
+  overflow: hidden;
+}
+
+.loginForm {
+  flex: 1;
+  padding: 40px 30px; /* Increase padding for better spacing */
+  background: rgba(255, 255, 255, 0.9); /* Light background */
+  border-radius: 10px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Soft box shadow */
+
+}
+
+.loginForm:hover {
+  /* transform: translateY(-5px);  */
+}
+
+.text_content {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #f8f9fa; /* Light gray background for contrast */
+  border-left: 2px solid rgba(0, 0, 0, 0.1); /* Add a subtle border between form and text */
+  transition: background-color 0.3s ease-in-out;
+  font-size: 18px;
+  text-align: justify;
+}
+
+.text_content h1 {
+  font-size: 32px;
+  color: #b12b20;
+  margin-bottom: 20px;
+}
+
+.text_content h2 {
+  color: #ff6600;
+  font-size: 22px;
+}
+
+.text_content:hover {
+  background-color: #f2f3f5; /* Subtle background color change on hover */
+}
+
+button {
+  padding: 12px 30px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 25px; /* Rounded button */
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #eb8432; /* Darker Evangadi color */
+  transform: translateY(-2px); /* Slight lift on hover */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+}
+
+.how_it_work {
+  padding: 12px 30px;
+  background-color: #eb8432;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s;
+  font-size: 16px;
+}
+
+.Login {
+  padding: 12px 30px;
+  background-color: #0056b3;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s;
+  font-size: 16px;
+  width: 50%;
+}
+
+.how_it_work:hover {
+  background-color: #d97327; /* Darker version of Evangadi orange */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add shadow on hover */
+}
+
+input {
+  width: 85%; /* 90% width */
+  padding: 12px 15px; /* More padding for input */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  margin-bottom: 15px;
+  font-size: 16px;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.2s;
+  position: relative; /* Position relative for icon */
+}
+
+input:focus {
+  border-color: #0056b3; /* Highlight input on focus */
+  box-shadow: 0 0 5px rgba(0, 86, 179, 0.2); /* Subtle glow effect */
+}
+
+/* Eye icon container */
+.passwordContainer {
+  position: relative; /* Position relative to contain the icon */
+}
+
+.iconContainer {
+  position: absolute; /* Absolute positioning */
+  right: 59%; /* Align to the right */
+  top: 64%; /* Center vertically */
+  cursor: pointer; /* Pointer cursor */
+  color: rgb(167, 80, 80);
+}
+
+.errorMessage {
+  color: red;
+  margin-bottom: 15px;
+}

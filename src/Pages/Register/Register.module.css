@@ -1,0 +1,155 @@
+/* Container for the whole registration section */
+.RegisterContainer {
+  display: flex;
+  justify-content: center;  /* Horizontally center */
+  align-items: center;  /* Vertically center */
+  padding: 20px;
+  background-image: url('../../image/bg-svg.svg');
+  background-size: cover;  /* Ensure the image covers the entire area */
+  background-repeat: no-repeat;
+  background-position: center center;
+  min-height: 100vh; /* Ensures the section takes full viewport height */
+}
+
+/* Main container for the form and text */
+.container {
+  display: flex;
+  justify-content: space-between; /* Align form and text side by side */
+  max-width: 1200px; /* Prevents container from being too wide */
+  width: 100%; /* Full width */
+  padding: 40px;
+}
+
+/* Information area for error messages */
+.RequireInformation {
+  margin-left: 140px;
+}
+
+/* Form container styling */
+.RegisterForm {
+  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
+  padding: 40px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  width: 400px; /* Fixed width for consistency */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center the content inside the form */
+}
+
+/* Input fields styling */
+.RegisterFormHeader {
+  width: 100%; /* Take full width */
+}
+
+/* Input styling */
+.RegisterFormHeader input {
+  width: 100%; /* Full width of the form */
+  padding: 12px;
+  margin-top: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+/* Flexbox for first name and last name */
+.form_flex {
+  display: flex;
+  justify-content: space-between; /* Space between inputs */
+  gap: 10px;
+}
+
+/* Button for registration form */
+.agree {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%; /* Full width for the button */
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.agree:hover {
+  background-color: #0056b3;
+}
+
+/* Link styling */
+a {
+  margin-top: 10px;
+  color: #ff6600;
+  font-size: 14px;
+  text-decoration: none;
+  text-align: center;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Right-side text content styling */
+.text_content_reg {
+  max-width: 700px; /* Prevents text content from being too wide */
+  padding: 30px;
+}
+
+.text_content_reg h1 {
+  font-size: 32px;
+  color: #b12b20;
+  margin-bottom: 20px;
+}
+
+.text_content_reg h2 {
+  color: #ff6600;
+  font-size: 22px;
+}
+
+.text_content_reg p {
+  color: #333;
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* "How it works" button */
+.how_it_work_reg {
+  background-color: #ff6600;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.how_it_work_reg:hover {
+  background-color: #cc5200;
+}
+
+/* Responsive behavior for smaller screens */
+@media (max-width: 768px) {
+  .RegisterContainer {
+    flex-direction: column; /* Stack vertically on smaller screens */
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .container {
+    flex-direction: column; /* Stack the form and text */
+    align-items: center; /* Center contents */
+  }
+
+  .RegisterForm {
+    width: 90%; /* Responsive width for smaller screens */
+    max-width: 400px; /* Limit max width */
+  }
+
+  .text_content_reg {
+    margin-top: 30px;
+    padding: 20px; /* Adjust padding for smaller screens */
+    width: 100%; /* Full width */
+  }
+}

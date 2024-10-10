@@ -1,0 +1,110 @@
+footer {
+  background-color: #3b455a;
+  color: rgb(243, 236, 236);
+  padding: 40px 0;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.footer_container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  color: white;
+
+}
+.footer_container h2{
+  color: #f3f2ef;
+}
+.footer_left,
+.footer_middle,
+.footer_right {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Left Section: Logo and Social Media Icons */
+.footer_left img {
+  width: 150px; /* Adjust the logo size */
+  margin-bottom: 20px;
+}
+
+.footer_left svg {
+  font-size: 30px;
+  color: #fcfafa;
+  margin: 0 10px;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.footer_left svg:hover {
+  color: #f0a500;
+}
+
+/* Middle Section: Useful Links */
+.footer_middle h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.footer_links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer_links li {
+  margin-bottom: 10px;
+}
+
+.footer_links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer_links a:hover {
+  color: #f0a500;
+}
+
+/* Right Section: Contact Info */
+.footer_right h2 {
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+
+.footer_right p,
+.footer_right a {
+  margin: 5px 0;
+  color: #f3f2ef;
+  text-decoration: none;
+}
+
+.footer_right a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer_container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer_left,
+  .footer_middle,
+  .footer_right {
+    margin-bottom: 20px;
+  }
+
+  .footer_left img {
+    margin: 0 auto;
+  }
+
+  .footer_left svg {
+    margin: 0 5px;
+  }
+}
