@@ -86,7 +86,7 @@ const AllQuestion = () => {
                     </p>
                   </div>
                   <div className={classes.questionContent}>
-                    <Link to={`/question/${question.question_id}`}>
+                    <Link to={`/question/${question.questionid}`}>
                       <p className={classes.questionTitle}>{question.title}</p>
                     </Link>
                   </div>

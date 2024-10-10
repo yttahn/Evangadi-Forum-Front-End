@@ -1,0 +1,58 @@
+
+.answer_container {
+  margin-top: 30px;
+}
+
+.answer_form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.answer_input {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  font-size: 16px;
+}
+
+.submit_button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  align-self: flex-end;
+}
+
+.submit_button:hover {
+  background-color: #0056b3;
+}
+
+.response_message {
+  margin-top: 20px;
+  font-size: 14px;
+  color: green;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .answer_form {
+    align-items: center;
+  }
+
+  .answer_input {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .submit_button {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+  }
+}

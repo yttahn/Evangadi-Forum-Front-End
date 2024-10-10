@@ -1,138 +1,105 @@
-import { AppState } from "../../App";
+import React, { useState } from "react";
 import axios from "../../axios/axiosConfig";
-import React, { useContext, useEffect, useRef, useState } from "react";
-import Classes from "./question.module.css";
-import Header from "../../component/Header/Header";
-import Footer from "../../component/Footer/Footer";
-import { useNavigate, useParams } from "react-router-dom";
-import { FaRegCircleUser } from "react-icons/fa6";
+import classes from "./question.module.css"; // Import styles
+import { FaArrowCircleRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
-const QuestionDetail = () => {
+const Questions = () => {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [responseMessage, setResponseMessage] = useState("");
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
-  const { question_id } = useParams();
-  const { users } = useContext(AppState);
-  const [questions, setQuestion] = useState({});
-  const [answers, setAnswers] = useState([]);
-   let params = useParams();
-  const textDom = useRef();
 
-  // Fetch a single question by question_id
-  const fetchQuestion = async () => {
-    try {
-      const response = await axios.get(
-        `/questions/single-questions/${params.question_id}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      setQuestion(response?.data?.singleQuestions[0]); 
-      // Adjusted to match API response structure
-    } catch (error) {
-      console.error(error?.response?.data || error.message);
-    }
-  };
-
-  // Fetch answers for the specific question
-  const fetchAnswers = async () => {
-    try {
-      const answerResponse = await axios.get(
-        `/answers/all-answers/${questions?.question_id}`, 
-        // Use question_id instead of tag
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      setAnswers(answerResponse?.data?.answers);
-    } catch (error) {
-      console.error(error?.response?.data || error.message);
-    }
-  };
-
-  // Post a new answer
-  const postAnswer = async (e) => {
+  const handlePostQuestion = async (e) => {
     e.preventDefault();
-    const answerValue = textDom.current.value;
-
-    if (!answerValue) {
-      alert("Please fill the answer field.");
-      return;
-    }
 
     try {
+      const token = localStorage.getItem("token"); // Assume token is stored in localStorage
+      if (!token) {
+        setResponseMessage("You must be logged in to post a question.");
+        return;
+      }
+
       const response = await axios.post(
-        `/answers/single-answer/${questions?.question_id}`,
-        // Adjusted to match your API endpoint for posting answers
+        "/question/askQuestion",
         {
-          user_id: questions?.user_id, // Fetch user_id from the context
-          question_id: questions?.question_id,
-          answer: answerValue,
+          title,
+          description,
         },
         {
           headers: {
-            Authorization: `Bearer ${token}`,
+            Authorization: `Bearer ${token}`, // Adding Authorization token if required
+            "Content-Type": "application/json",
           },
         }
       );
-      alert("Answer added successfully.");
-      setAnswers([...answers, response.data.newAnswer]); // Assuming response contains the new answer
+
+      setResponseMessage(response.data.msg); // Show success message from API
+      navigate("/all-questions");
     } catch (error) {
-      console.error(error?.response?.data || error.message);
+      setResponseMessage(
+        error.response?.data?.msg || "An unexpected error occurred."
+      );
+      console.error(error); // Log the error for debugging
     }
   };
 
-  // Fetch question on component load
-  useEffect(() => {
-    fetchQuestion();
-  }, [question_id]);
-
-  // Fetch answers when question_id changes
-  useEffect(() => {
-    if (questions?.question_id) {
-      fetchAnswers();
-    }
-  }, [questions?.question_id]);
-
   return (
-    <div>
-      <Header />
-      <section className={Classes.Question}>
-        <h2>Question</h2>
-        <h4>{questions?.question}</h4>
-        <h6>{questions?.description}</h6>
-        <hr />
-        <h1>Answer From The Community</h1>
-        <hr />
-        {answers?.map((el, index) => (
-          <div key={index}>
-            <FaRegCircleUser size={80} />
-            <h6>{el?.username}</h6>
-            <div>
-              <h6>{el.answer}</h6>
-            </div>
-          </div>
-        ))}
+    <div className={classes.container}>
+      <h1 className={classes.heading}>Steps To Write A Good Question</h1>
+      <hr className={classes.divider} />
+      <ul className={classes.questionSteps}>
+        <li>
+          <FaArrowCircleRight className={classes.icon} />
+          Summarize your problems in a one-line title.
+        </li>
+        <li>
+          <FaArrowCircleRight className={classes.icon} />
+          Describe your problem in more detail.
+        </li>
+        <li>
+          <FaArrowCircleRight className={classes.icon} />
+          Describe what you tried and what you expected to happen.
+        </li>
+        <li>
+          <FaArrowCircleRight className={classes.icon} />
+          Review your question and post it here.
+        </li>
+      </ul>
+
+      <form onSubmit={handlePostQuestion} className={classes.form}>
         <div>
-          <h2>Answer The Above Question</h2>
-          <form onSubmit={postAnswer}>
-            <textarea
-              ref={textDom}
-              placeholder="Your Answer ..."
-              rows="4"
-              cols="50"
-            ></textarea>
-            <br />
-            <button type="submit">Post Your Answer</button>
-          </form>
+          <h2 className={classes.subtitle}>Post Your Question</h2>
+          <input
+            type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            placeholder="Question title"
+            className={classes.input}
+            required
+          />
         </div>
-      </section>
-      <Footer />
+
+        <div>
+          <textarea
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            placeholder="Question detail ..."
+            className={classes.textarea}
+            required
+          />
+        </div>
+
+        <button type="submit" className={classes.button}>
+          Post Question
+        </button>
+      </form>
+
+      {responseMessage && (
+        <p className={classes.responseMessage}>{responseMessage}</p>
+      )}
     </div>
   );
 };
 
-export default QuestionDetail;
+export default Questions;

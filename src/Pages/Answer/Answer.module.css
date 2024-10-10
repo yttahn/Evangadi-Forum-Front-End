@@ -1,0 +1,43 @@
+
+.answer_container {
+  list-style: none;
+  padding: 0;
+}
+
+.answer_container li {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.answer_container li p {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.answer_container li small {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  color: #555;
+}
+
+.answer_container li small p {
+  margin-left: 10px;
+}
+
+.answer_container li .FaUserCircle {
+  font-size: 24px;
+  color: #007bff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .answer_container li {
+    flex-direction: column;
+    text-align: left;
+  }
+}

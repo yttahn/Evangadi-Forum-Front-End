@@ -8,6 +8,7 @@ import RegisterPage from "./component/SignUp/RegisterPage.jsx";
 import Header from "./component/Header/Header.jsx";
 import Footer from "./component/Footer/Footer.jsx";
 import QuestionDetail from "./Pages/Question/QuestionDetail.jsx";
+import QuestionWithAnswers from "./Pages/Question/QuestionWithAnswers.jsx"
 import Howitworks from "./component/Howitworks/Howitworks.jsx";
 import ForgotPassword from "./Pages/LogIn/ForgotPassword.jsx";
 import AllQuestions from "./Pages/Question/AllQuestions.jsx"
@@ -69,11 +70,8 @@ function App() {
           path="/askquestion"
           element={users ? <AskQuestion /> : <LoginPage />}
         />
-        <Route
-          path="/single-questions/:question_id"
-          element={<QuestionDetail />}
-        />
-        <Route path="/questions" element={<AllQuestions />} />
+         <Route path="/questions" element={<AllQuestions />} />
+        <Route path="/question/:question_id" element={<QuestionWithAnswers />} />
       </ Routes>
     </AppState.Provider>
   );
