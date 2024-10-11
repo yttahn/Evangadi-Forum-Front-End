@@ -56,3 +56,37 @@
     font-size: 14px;
   }
 }
+
+
+/*chat gpt's*/
+
+/* SubmitAnswer.module.css */
+.submit_answer_container {
+  margin-top: 20px;
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  resize: none;
+  min-height: 100px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 10px;
+  font-size: 1.125rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

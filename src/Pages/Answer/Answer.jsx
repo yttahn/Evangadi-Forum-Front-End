@@ -1,46 +1,92 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "../../axios/axiosConfig";
 import { FaUserCircle } from "react-icons/fa";
 import Classes from "./Answer.module.css";
+import { AppState } from "../../../src/App";
 
-const Answers = () => {
-  const { question_id } = useParams(); // Extract questionid from the URL
-  const [answers, setAnswers] = useState([]); // State to store answers
-  const [newAnswer, setNewAnswer] = useState(""); // State for new answer input
-  const [error, setError] = useState(""); // State to handle errors
-  const [loading, setLoading] = useState(true); // State to handle loading
+const AnswersAndSubmit = () => {
+  const { question_id } = useParams();
+  const [answers, setAnswers] = useState([]);
+  const [newAnswer, setNewAnswer] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [responseMessage, setResponseMessage] = useState("");
+  const { users } = useContext(AppState);
+  const user_id = users?.user_id;
 
-  // Fetch answers when component mounts or when question_id changes
+  const fetchAnswers = async () => {
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.get(`answers/all-answers/${question_id}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      setAnswers(response?.data?.answers);
+      setLoading(false);
+    } catch (error) {
+      setError(error.response?.data?.message || "An unexpected error occurred.");
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchAnswers = async () => {
-      try {
-        const token = localStorage.getItem("token"); // Fetch the auth token
-        const response = await axios.get(`answers/all-answers/${question_id}`, {
-          headers: {
-            Authorization: `Bearer ${token}`, // Pass token in the headers
-          },
-        });
-        setAnswers(response?.data?.answers); // Set answers in state
-        setLoading(false); // Stop loading once answers are fetched
-      } catch (error) {
-        setError(
-          error.response?.data?.message || "An unexpected error occurred."
-        );
-        //console.log(error)
-        setLoading(false); // Stop loading if an error occurs
-      }
-    };
-
     if (question_id) {
       fetchAnswers();
     }
   }, [question_id]);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const token = localStorage.getItem("token");
+      const response = await axios.post(
+        `/answers/single-answer/`,
+        {
+          question_id,
+          answer: newAnswer,
+          user_id
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      setResponseMessage(response.data.msg);
+      setNewAnswer(""); // Clear the input field
+      fetchAnswers(); // Fetch answers again to update the list
+    } catch (error) {
+      setResponseMessage(error.response?.data?.msg || "An unexpected error occurred.");
+    }
+  };
+
   if (loading) return <p>Loading answers...</p>;
 
   return (
     <div>
+
+      <div className={Classes.answer_container}>
+ {responseMessage && (
+          <p className={Classes.response_message}>{responseMessage}</p>
+        )}
+
+        <form onSubmit={handleSubmit} className={Classes.answer_form}>
+          <textarea
+            className={Classes.answer_input}
+            placeholder="Your answer ..."
+            value={newAnswer}
+            onChange={(e) => setNewAnswer(e.target.value)}
+          />
+          <button type="submit" className={Classes.submit_button}>
+            Post Answer
+          </button>
+        </form>
+             </div>
+
       <h3>Answers From The Community</h3>
       {error ? (
         <p>No Answer Could Be Found!</p>
@@ -49,7 +95,6 @@ const Answers = () => {
           {answers.map((answer) => (
             <li key={answer.answer_id}>
               <small>
-                {" "}
                 <FaUserCircle />
                 <p>{answer.username}</p>
               </small>
@@ -62,4 +107,4 @@ const Answers = () => {
   );
 };
 
-export default Answers;
+export default AnswersAndSubmit;

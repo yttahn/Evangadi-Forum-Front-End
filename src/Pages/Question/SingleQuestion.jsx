@@ -59,17 +59,13 @@ const SingleQuestion = () => {
           <span className={classes.question_title}>
             <h2>
               {" "}
-              <FaArrowCircleRight style={{ color: " #007bff" }} />{" "}
               {question.title}
             </h2>
           </span>
-          <hr />
         </div>
         <div className={classes.question_desc}>
           <p className={classes.question_description}>{question.description}</p>
-          <hr />
         </div>
-        <SubmitAnswer question_id={question_id} />
       </div>
     </div>
   );

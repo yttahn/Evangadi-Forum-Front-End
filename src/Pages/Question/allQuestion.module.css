@@ -1,9 +1,11 @@
+
 /* General container for the entire question list */
 .question_list_container {
   width: 100%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
-  background-color: #f9f9f9;
+  background-color: #f7f8fa;
 }
 
 /* Top bar with "Ask Question" and welcome message */
@@ -11,146 +13,137 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
+  margin-top: 80px;
   padding: 10px;
-  background-color: #ffffff; /* White background for top bar */
-  border-radius: 8px; /* Rounded corners */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .askQuestionBtn {
-  background-color: #007bff;
+  background-color: #219ebc;
   color: white;
   border: none;
-  padding: 10px 20px;
+  padding: 12px 20px;
+  font-size: 16px;
   cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s ease, transform 0.2s; /* Transition for button */
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
 .askQuestionBtn:hover {
-  background-color: #0056b3; /* Darker blue on hover */
-  transform: translateY(-2px); /* Lift effect on hover */
+  background-color: #218838;
+  transform: translateY(-3px);
 }
 
 .welcomeMessage {
   font-size: 16px;
-  text-align: end;
-  width: 30%;
-  margin-right: 90px;
+  text-align: right;
+  color: #444;
 }
 
 .username {
   color: #ff5c5e;
-  font-weight: bold; /* Make the username bold */
+  font-weight: bold;
+  margin-left: 5px;
 }
 
 /* Search bar styling */
 .searchBar {
-  margin-bottom: 20px; /* Spacing below the search bar */
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
 }
 
 .searchBar input {
   width: 85%;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 5px;
-  margin-left: 60px;
-  transition: border-color 0.3s ease; /* Transition for border color */
+  border-radius: 8px;
+  transition: all 0.3s ease;
 }
 
 .searchBar input:focus {
-  border-color: #007bff; /* Highlight border on focus */
-  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3); /* Glow effect */
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.3);
 }
 
 /* Styling each question item */
 .questionItems {
   display: flex;
   flex-direction: column;
-  width: 100%;
 }
 
 .questionItem {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 1px solid #e6e6e6;
-  padding: 15px 0;
-  cursor: pointer;
-  transition: background-color 0.3s ease; /* Transition for background color */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  margin-bottom: 15px;
 }
 
 .questionItem:hover {
-  background-color: #f1f1f1; /* Light background on hover */
+  background-color: #f1f3f5;
+  transform: translateY(-5px);
 }
 
 .user {
   display: flex;
-  align-items: center; /* Center vertically */
-  width: auto; /* Allow flexibility */
+  align-items: center;
 }
 
 .userIcon {
   font-size: 40px;
-  color: #0056b3;
-  margin-right: 20px;
+  color: #007bff;
+  margin-right: 15px;
 }
 
 .questionContent {
-  flex: 1; /* Flex-grow for proper spacing */
+  flex: 1;
 }
 
 .questionTitle {
-  font-size: 16px;
-  margin-bottom: 5px;
-  color: black;
-  padding-left: 50px;
-  transition: color 0.3s ease; /* Transition for text color */
-}
-
-.questionTitle:hover {
-  color: #007bff; /* Change color on hover */
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
 }
 
 .questionAuthor {
-  color: #666;
+  color: #555;
   font-size: 14px;
 }
 
-/* Arrow icon */
 .arrowIcon {
   font-size: 24px;
-  color: #0056b3;
+  color: #007bff;
 }
 
 /* Responsive behavior for smaller screens */
 @media (max-width: 768px) {
   .topBar {
-    flex-direction: column; /* Stack elements on small screens */
+    flex-direction: column;
     align-items: flex-start;
-    margin-bottom: 10px; /* Adjust margin */
   }
 
   .welcomeMessage {
-    margin-right: 0; /* Remove right margin on small screens */
-  }
-
-  .searchBar input {
-    margin-left: 0; /* Center input field */
+    margin-top: 10px;
   }
 
   .questionItem {
-    flex-direction: column; /* Stack user and content vertically */
-    align-items: flex-start; /* Align items to the start */
-    padding: 10px; /* Adjust padding */
-  }
-
-  .userIcon {
-    margin-bottom: 10px; /* Space below icon */
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 15px;
   }
 
   .questionContent {
-    width: 100%; /* Full width for content */
+    margin-top: 10px;
   }
 }
+

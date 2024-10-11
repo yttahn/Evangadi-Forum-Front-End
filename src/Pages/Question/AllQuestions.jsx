@@ -9,7 +9,6 @@ import Header from "../../component/Header/Header";
 
 const AllQuestion = () => {
   const { users } = useContext(AppState); // Changed from user to users
-  console.log(users);
   const [questions, setQuestions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -49,56 +48,55 @@ const AllQuestion = () => {
       {loading ? (
         <p>Loading questions...</p>
       ) : (
-      <>
-        <Header />
-        <div className={classes.question_list_container}>
-          <div className={classes.topBar}>
-            <Link to="/askquestion">
-              <button className={classes.askQuestionBtn}>Ask Question</button>
-            </Link>
+        <>
+          <Header />
+          <div className={classes.question_list_container}>
+            <div className={classes.topBar}>
+              <Link to="/askquestion">
+                <button className={classes.askQuestionBtn}>Ask Question</button>
+              </Link>
 
-            <div className={classes.welcomeMessage}>
-              Welcome:{" "}
-              <span className={classes.username}>{users?.username}</span>
+              <div className={classes.welcomeMessage}>
+                Welcome:{" "}
+                <span className={classes.username}>{users?.username}</span>
+              </div>
+            </div>
+
+            <div className={classes.searchBar}>
+              <input
+                type="text"
+                placeholder="Search question"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+
+            <div className={classes.questionItems}>
+              {filteredQuestions.length > 0 ? (
+                filteredQuestions.map((question) => (
+                  <Link
+                    to={`/question/${question.questionid}`}
+                    className={classes.questionItem}
+                    key={question.question_id}
+                  >
+                    <div className={classes.user}>
+                      <FaUserCircle className={classes.userIcon} />
+                      <p className={classes.questionAuthor}>
+                        {question.username}
+                      </p>
+                    </div>
+                    <div className={classes.questionContent}>
+                      <p className={classes.questionTitle}>{question.title}</p>
+                    </div>
+                    <IoIosArrowForward className={classes.arrowIcon} />
+                  </Link>
+                ))
+              ) : (
+                <p>No questions found.</p>
+              )}
             </div>
           </div>
-
-          <div className={classes.searchBar}>
-            <input
-              type="text"
-              placeholder="Search question"
-              value={searchTerm}
-              onChange={(e) => setSearchTerm(e.target.value)}
-            />
-          </div>
-
-          <div className={classes.questionItems}>
-            {filteredQuestions.length > 0 ? (
-              filteredQuestions.map((question) => (
-                <div
-                  className={classes.questionItem}
-                  key={question.question_id}
-                >
-                  <div className={classes.user}>
-                    <FaUserCircle className={classes.userIcon} />
-                    <p className={classes.questionAuthor}>
-                      {question.username}
-                    </p>
-                  </div>
-                  <div className={classes.questionContent}>
-                    <Link to={`/question/${question.questionid}`}>
-                      <p className={classes.questionTitle}>{question.title}</p>
-                    </Link>
-                  </div>
-                  <IoIosArrowForward className={classes.arrowIcon} />
-                </div>
-              ))
-            ) : (
-              <p>No questions found.</p>
-            )}
-          </div>
-        </div>
-      </>
+        </>
       )}
     </>
   );

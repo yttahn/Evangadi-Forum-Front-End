@@ -20,6 +20,7 @@ header {
   height: 80px; /* Initial height */
   color: #3b455a;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Soft box shadow */
+  margin-bottom: 30px;
 }
 
 /* Logo container */
@@ -132,4 +133,47 @@ body {
     width: 80%; /* Adjust logo size */
     max-width: 150px; /* Limit maximum size */
   }
+}
+
+/*chat-gpt's*/
+
+/* Updated Button styles */
+.nav_button {
+  background-color: #007bff; /* Primary color */
+  color: white;
+  padding: 12px 25px; /* Slightly larger padding */
+  text-decoration: none;
+  font-size: 16px;
+  border: none; /* Remove default button border */
+  border-radius: 30px; /* More rounded corners */
+  font-weight: 600;
+  letter-spacing: 0.5px; /* Slight spacing for modern feel */
+  box-shadow: 0 6px 10px rgba(0, 123, 255, 0.15); /* Subtle shadow */
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease, box-shadow 0.3s;
+}
+
+.nav_button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  box-shadow: 0 8px 16px rgba(0, 86, 179, 0.25); /* Stronger shadow on hover */
+  transform: translateY(-3px); /* Slight upward movement */
+}
+
+.Sign_in button {
+  color: white; /* Ensure text is visible */
+  cursor: pointer;
+  font-size: 16px;
+  background: linear-gradient(135deg, #f8760c, #f7a30c); /* Gradient background */
+  font-weight: 600;
+  padding: 12px 35px; /* Slightly larger padding */
+  border-radius: 30px;
+  border: none; /* Remove border */
+  box-shadow: 0 6px 12px rgba(247, 163, 12, 0.2); /* Subtle shadow */
+  letter-spacing: 0.5px;
+  transition: background-color 0.3s ease-in-out, box-shadow 0.3s, transform 0.3s;
+}
+
+.Sign_in button:hover {
+  background-color: #f78f0c; /* Slightly darker gradient */
+  box-shadow: 0 8px 16px rgba(247, 163, 12, 0.35); /* Stronger shadow on hover */
+  transform: translateY(-3px); /* Slight upward movement */
 }
