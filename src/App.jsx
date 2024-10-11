@@ -59,6 +59,7 @@ function App() {
   return (
     // Provide user state to the whole app via context
     <AppState.Provider value={{ users, setUser }}>
+      <div className="container-fluid">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/howitworks" element={<Howitworks />} />
@@ -73,6 +74,7 @@ function App() {
          <Route path="/questions" element={<AllQuestions />} />
         <Route path="/question/:question_id" element={<QuestionWithAnswers />} />
       </ Routes>
+      </div>
     </AppState.Provider>
   );
 }
