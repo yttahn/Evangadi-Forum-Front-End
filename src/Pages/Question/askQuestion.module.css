@@ -1,227 +1,138 @@
-/* .container {
-  width: 50%;
-  margin: 0 auto;
-  padding: 2rem;
-  background-color: #fff;
+/* Container for the question form and instructions */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 100px auto;
+  gap: 40px;
+}
+
+/* Instruction section styling */
+.question_form_Instruction {
+  flex: 1;
+  padding: 25px;
+  background-color: #f0f4f8;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 20px;
 }
-h3 {
-  text-align: center;
+
+.question_form_Instruction h2 {
   font-size: 24px;
+  margin-bottom: 20px;
+  color: #ff6600;
+}
+
+.question_form_Instruction ul {
+  margin-left: 20px;
+  line-height: 1.8;
+  font-size: 16px;
   color: #333;
-  margin-bottom: 1rem;
-}
-ul {
-  list-style-type: disc;
-  padding-left: 1.5rem;
-  margin-bottom: 2rem;
 }
 
-ul li {
+.question_form_Instruction li {
+  margin-bottom: 15px;
+}
+
+/* Main form container */
+.question_form_container {
+  flex: 2;
+  padding: 35px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.Ask_Public {
+  margin-bottom: 25px;
+}
+
+.Ask_Public h2 {
+  font-size: 28px;
+  color: #0056b3;
+  margin-bottom: 15px;
+}
+
+.questionText {
   font-size: 16px;
-  color: #555;
-  line-height: 1.6;
+  color: #777;
+  margin-bottom: 15px;
 }
 
-h4 {
-  font-size: 22px;
-  color: #222;
-  text-align: center;
-  margin-bottom: 1rem;
+/* Error and success messages */
+p {
+  font-size: 16px;
 }
 
-.form {
+p[style*="red"] {
+  color: #ff3b3b !important;
+}
+
+p[style*="rgba(0, 255, 0, 0.8)"] {
+  color: #28a745 !important;
+}
+
+/* Form styling */
+.question_form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
-  padding: 1rem;
+  gap: 25px;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-input[type="text"], textarea {
+.form_group input,
+.form_group textarea {
   width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 15px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
   font-size: 16px;
-  background-color: #f9f9f9;
+  background-color: #f9fafc;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-input[type="text"]:focus, textarea:focus {
+.form_group input:focus,
+.form_group textarea:focus {
+  border-color: #ff6600;
   outline: none;
-  border-color: #007bff;
-  background-color: #fff;
+  box-shadow: 0 0 8px rgba(255, 102, 0, 0.3);
 }
 
+textarea {
+  height: 180px;
+  resize: vertical;
+}
+
+/* Submit button styling */
 .Your_Question {
-  width: 100%;
-  background-color: #007bff;
+  padding: 14px 35px;
+  background-color: #ff6600;
   color: white;
-  padding: 10px 15px;
-  font-size: 16px;
-  font-weight: bold;
   border: none;
-  border-radius: 4px;
+  border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  font-size: 17px;
+  font-weight: bold;
+  transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .Your_Question:hover {
-  background-color: #0056b3;
+  background-color: #e25400;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
 }
 
-.Your_Question:active {
-  background-color: #004494;
-}
-
+/* Responsive Design */
 @media (max-width: 768px) {
   .container {
-    width: 90%;
+    flex-direction: column;
+    gap: 20px;
   }
-} */
-.container{
-  background-image: url("../../image/bg-svg.svg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  height: 100vh; /* Full height */
-}
-.question_form_Instruction {
-  font-family: Arial, sans-serif;
-  width: 800px;
-  margin: 0 auto;
-  padding: 5px;
-  padding-top: 40px;
-  margin-left: 30%;
-}
 
-h2 {
-  color: #333e4b;
-  margin-left: 5%;
-  margin-bottom: 10px;
-}
-
-ul {
-  padding-left: 20px;
-}
-
-li {
-  margin-bottom: 10px;
-  color: #4a4a49;
-}
-
-.question_form_container {
-  max-width: 800px;
-  margin: 0 auto;
-}
-.question_form_container h2 {
-  text-align: center;
-  padding-right: 40%;
-}
-.Ask_Public {
-  margin-top: 50px;
-  padding-bottom: -10px;
-}
-.Ask_Public p {
-  margin-left: 100px;
-}
-.question_form_container p {
-  text-align: center;
-  /* padding-right: 45%; */
-}
-.question_form {
-  margin-top: 0px;
-  width: 900px;
-}
-
-.form_group {
-  margin-bottom: 10px;
-  width: 100%;
-}
-
-
-.questionText {
-    color: red; /* Text color */
-    font-size: 18px; /* Font size */
-    display: flex; /* Use flexbox for alignment */
-    justify-content: center; /* Center align the text */
-    align-items: center; /* Center align items vertically */
-    gap: 40px; /* Space between elements */
-    margin: 20px auto; /* Margin at the top and bottom, center horizontally */
-    padding: 10px 15px; /* Padding for spacing around the text */
-    background-color: rgba(255, 255, 255, 0.8); /* Light background for contrast */
-    border: 1px solid rgba(255, 0, 0, 0.5); /* Optional: Light red border */
-    border-radius: 8px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
-    transition: background-color 0.3s; /* Smooth background color transition */
-}
-
-.questionText:hover {
-    background-color: rgba(230, 79, 79, 0.2); /* Change background color on hover */
-}
-
-label {
-  display: block;
-  margin-bottom: 5px;
-}
-
-input[type="text"] {
-  width: 85%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-}
-textarea {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  height: 150px;
-  max-width: 600vh;
-}
-
-button {
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  margin-bottom: 20px;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-@media screen and (max-width: 768px) {
   .question_form_container {
-    padding: 20px;
-  }
-
-  .Ask_Public {
-    margin-bottom: 20px;
-  }
-
-  .question_form {
-    max-width: 100%;
-  }
-
-  .question_form input,
-  .question_form textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 10px;
-  }
-
-  .question_form button {
-    width: 100%;
+    padding: 25px;
   }
 }

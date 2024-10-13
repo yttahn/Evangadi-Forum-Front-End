@@ -5,7 +5,6 @@ import { v4 as uuidv4 } from "uuid";
 import classes from "../Question/askQuestion.module.css";
 import { AppState } from "../../App";
 import Header from "../../component/Header/Header";
-import Footer from "../../component/Footer/Footer";
 
 function AskQuestion() {
   const token = localStorage.getItem("token");
@@ -107,7 +106,6 @@ function AskQuestion() {
           </form>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

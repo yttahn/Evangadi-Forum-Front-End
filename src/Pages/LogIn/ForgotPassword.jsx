@@ -4,7 +4,6 @@ import classes from "../LogIn/Forgot.module.css";
 import { ClipLoader } from "react-spinners";
 import { useNavigate } from "react-router-dom";
 import Header from "../../component/Header/Header";
-import Footer from "../../component/Footer/Footer";
 
 function ForgotPassword() {
   const [email, setEmail] = useState("");
@@ -93,7 +92,6 @@ function ForgotPassword() {
           </button>
         </div>
       </section>
-      <Footer/>
     </>
   );
 }

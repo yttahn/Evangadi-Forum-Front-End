@@ -26,10 +26,10 @@ function Footer() {
               <Link to="/howitworks">How it works</Link>
             </li>
             <li>
-              <Link to="/">Terms of Service</Link>
+              <Link to="/TermsOfService">Terms of Service</Link>
             </li>
             <li>
-              <Link to="/">Privacy Policy</Link>
+              <Link to="/PrivacyPolicy">Privacy Policy</Link>
             </li>
           </div>
         </div>

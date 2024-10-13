@@ -1,6 +1,5 @@
 import React from 'react'
 import  Classes from "../Howitworks/Howitworks.module.css";
-import Footer from '../Footer/Footer';
 import Header from '../Header/Header';
 function Howitworks() {
   return (
@@ -74,7 +73,6 @@ function Howitworks() {
           </p>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }
