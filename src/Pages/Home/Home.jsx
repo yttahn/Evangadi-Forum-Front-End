@@ -13,7 +13,7 @@ function Home() {
 
   // Function to handle Join Now button click
   const handleJoinNowClick = () => {
-        if (!users?.user_id || !users?.username) {
+    if (!users?.user_id || !users?.username) {
       console.error("User object is undefined or incomplete");
       navigate("/login"); // Redirect to login if user is not logged in
       return;

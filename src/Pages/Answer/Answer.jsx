@@ -70,7 +70,7 @@ const AnswersAndSubmit = () => {
     <div>
 
       <div className={Classes.answer_container}>
- {responseMessage && (
+        {responseMessage && (
           <p className={Classes.response_message}>{responseMessage}</p>
         )}
 
@@ -85,7 +85,7 @@ const AnswersAndSubmit = () => {
             Post Answer
           </button>
         </form>
-             </div>
+      </div>
 
       <h3>Answers From The Community</h3>
       {error ? (

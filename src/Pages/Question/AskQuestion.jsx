@@ -10,7 +10,7 @@ function AskQuestion() {
   const token = localStorage.getItem("token");
   const { users } = useContext(AppState);
   const user_id = users?.user_id; // Safely accessing user_id
-  const username=users?.username;
+  const username = users?.username;
 
   // State for error and success messages
   const [error, setError] = useState("");
@@ -87,7 +87,7 @@ function AskQuestion() {
             )}
             <p className={classes.questionText}>
               Name: {username ? username : "No user ID available"}
-             <br /> User ID: {user_id ? user_id : "No user ID available"}
+              <br /> User ID: {user_id ? user_id : "No user ID available"}
             </p>
           </div>
           <form className={classes.question_form} onSubmit={handleSubmit}>

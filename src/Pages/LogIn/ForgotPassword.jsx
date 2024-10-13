@@ -43,7 +43,6 @@ function ForgotPassword() {
 
   return (
     <>
-      <Header />
       <section className={classes.forgotPasswordContainer}>
         <div className={classes.forgotPasswordContent}>
           <h2>Forgot Password</h2>
@@ -92,6 +91,7 @@ function ForgotPassword() {
           </button>
         </div>
       </section>
+
     </>
   );
 }

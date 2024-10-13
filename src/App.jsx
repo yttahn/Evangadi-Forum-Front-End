@@ -23,7 +23,7 @@ function App() {
   const [users, setUser] = useState(null); // Initialize users as null
   const [loading, setLoading] = useState(true); // State to handle loading
   const navigate = useNavigate(); // Navigation hook
-	const token = localStorage.getItem("token");
+  const token = localStorage.getItem("token");
 
 
   useEffect(() => {
@@ -70,6 +70,7 @@ function App() {
           <Route path="/howitworks" element={<Howitworks />} />
           <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
           <Route path="/TermsOfService" element={<TermsOfService />} />
+
           <Route path="/login" element={<LoginPage />} />
           <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route path="/register" element={<RegisterPage />} />
@@ -85,6 +86,7 @@ function App() {
           />
         </Routes>
         <Footer />
+
       </div>
     </AppState.Provider>
   );

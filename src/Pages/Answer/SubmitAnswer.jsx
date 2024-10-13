@@ -25,9 +25,9 @@ const SubmitAnswer = ({ question_id }) => {
           answer,
           user_id
 
-	//"question_id":6,
-	//"answer":"answer",
-	//"user_id":4
+          //"question_id":6,
+          //"answer":"answer",
+          //"user_id":4
 
         },
         {
