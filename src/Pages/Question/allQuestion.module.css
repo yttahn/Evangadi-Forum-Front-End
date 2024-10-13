@@ -99,9 +99,15 @@
 
 .user {
   display: flex;
+  flex-direction: column;
   align-items: center;
+  margin-left: 30px; /* Existing left margin */
+  
+  /* New styles */
+  padding-right: 20px; /* Optional padding to create space between content and border */
+  width: 150px;
+  border-right: 2px solid #6F6e72; /* Separator border on the left */
 }
-
 .userIcon {
   font-size: 45px;
   color: #007bff;
@@ -111,6 +117,7 @@
 .questionContent {
   flex: 1;
   padding-right: 15px;
+  margin-left: 50px;
 }
 
 .questionTitle {

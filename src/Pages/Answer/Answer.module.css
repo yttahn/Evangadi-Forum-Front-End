@@ -1,12 +1,11 @@
-
 .answer_container {
   list-style-type: none;
   padding: 0;
-  margin-left: 20px; /* Added left spacing */
+  margin: 50px;
 }
 
 .answer_container li {
-  background-color: #f9f9f9; /* Soft background color */
+  background-color: #fff;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 12px;
@@ -14,147 +13,64 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   display: flex;
   align-items: center;
-  gap: 15px; /* Added spacing between user info and answer */
+  gap: 20px;
 }
 
 .answer_container li:hover {
-  transform: translateY(-5px); /* Subtle lift effect on hover */
+  transform: translateY(-5px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-.answer_container li p {
-  margin: 0;
-  padding: 5px 0;
-  font-size: 16px;
-  color: #333;
-}
-
-.answer_container li small {
+.answer_container li .user_info {
   display: flex;
-  align-items: center;
-  font-size: 14px;
-  color: #666;
-}
-
-.answer_container li small p {
-  margin-left: 10px;
-  font-weight: 500;
-}
-
-.answer_container li small svg {
-  font-size: 28px; /* Increased icon size */
-  color: #007bff;
-  margin-right: 10px; /* Slightly larger spacing between icon and text */
-}
-
-.answer_container li .FaUserCircle {
-  font-size: 28px;
-  color: #007bff;
-}
-
-/* Make answer section more prominent */
-.answer_container li .answer_text {
-  font-size: 15px;
-  color: #4a4a4a;
-  line-height: 1.6; /* Better line spacing for readability */
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-  .answer_container li {
-    flex-direction: column;
-    text-align: left;
-    gap: 10px; /* Adjust gap for smaller screens */
-  }
-
-  .answer_container li small {
-    font-size: 13px; /* Adjust font size for better mobile readability */
-  }
-
-  .answer_container li .answer_text {
-    font-size: 14px; /* Adjust font size for mobile readability */
-  }
-}
-
-/*submit answer's css*/
-
-.answer_container {
-  margin-top: 30px;
-}
-
-.answer_form {
-  display: flex;
+  border-left: blue 1px ;
   flex-direction: column;
-  margin-top: 20px;
-}
-
-.answer_input {
-  width: 100%;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  font-size: 16px;
-}
-
-.submit_button {
-  background-color: #007bff;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 16px;
-  align-self: flex-end;
-}
-
-.submit_button:hover {
-  background-color: #0056b3;
-}
-
-.response_message {
-  margin-top: 20px;
+  align-items: center;
+  color: #666;
   font-size: 14px;
-  color: green;
+  flex-shrink: 0;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .answer_form {
-    align-items: center;
-  }
-
-  .answer_input {
-    width: 100%;
-    font-size: 14px;
-  }
-
-  .submit_button {
-    width: 100%;
-    text-align: center;
-    font-size: 14px;
-  }
+.answer_container li .user_info .FaUserCircle {
+  font-size: 48px;
+  color: #007bff;
 }
 
+.answer_container li .user_info .username {
+  margin-top: 8px;
+  font-weight: 500;
+  font-size: 16px;
+}
 
-/*chat gpt's*/
+.answer_container li .answer_text {
+  flex-grow: 1;
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+}
 
-/* SubmitAnswer.module.css */
+/* Submit Answer */
 .submit_answer_container {
-  margin-top: 20px;
+  margin-top: 30px;
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-textarea {
+.submit_answer_container textarea {
   width: 100%;
+  margin:50px;
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #ddd;
   font-size: 1rem;
   resize: none;
   min-height: 100px;
+  background-color: #fff;
 }
 
-button {
+.submit_answer_container button {
   background-color: #007bff;
   color: white;
   border: none;
@@ -166,6 +82,52 @@ button {
   transition: background-color 0.3s ease-in-out;
 }
 
-button:hover {
+.submit_answer_container button:hover {
   background-color: #0056b3;
+}
+
+.response_message {
+  margin-top: 20px;
+  font-size: 14px;
+  color: green;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .answer_container li {
+    flex-direction: row;
+    text-align: left;
+    gap: 15px;
+  }
+
+  .answer_container li .user_info {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .answer_container li .user_info .FaUserCircle {
+    font-size: 40px;
+  }
+
+  .answer_container li .user_info .username {
+    margin-top: 0;
+    font-size: 14px;
+  }
+
+  .answer_container li .answer_text {
+    font-size: 16px;
+  }
+
+  .submit_answer_container {
+    padding: 15px;
+  }
+
+  .submit_answer_container textarea {
+    font-size: 0.9rem;
+  }
+
+  .submit_answer_container button {
+    font-size: 1rem;
+  }
 }

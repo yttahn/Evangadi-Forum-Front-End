@@ -49,7 +49,6 @@ const AllQuestion = () => {
         <p>Loading questions...</p>
       ) : (
         <>
-          <Header />
           <div className={classes.question_list_container}>
             <div className={classes.topBar}>
               <Link to="/askquestion">
@@ -79,7 +78,7 @@ const AllQuestion = () => {
                     className={classes.questionItem}
                     key={question.question_id}
                   >
-                    <div className={classes.user}>
+                    <div className={classes.user} >
                       <FaUserCircle className={classes.userIcon} />
                       <p className={classes.questionAuthor}>
                         {question.username}

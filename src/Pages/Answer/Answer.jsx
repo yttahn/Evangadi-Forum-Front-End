@@ -1,9 +1,12 @@
+
 import React, { useState, useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import axios from "../../axios/axiosConfig";
 import { FaUserCircle } from "react-icons/fa";
 import Classes from "./Answer.module.css";
 import { AppState } from "../../../src/App";
+import { ToastContainer, toast } from 'react-toastify'; // Import toast components
+import 'react-toastify/dist/ReactToastify.css'; // Import CSS
 
 const AnswersAndSubmit = () => {
   const { question_id } = useParams();
@@ -11,7 +14,6 @@ const AnswersAndSubmit = () => {
   const [newAnswer, setNewAnswer] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
-  const [responseMessage, setResponseMessage] = useState("");
   const { users } = useContext(AppState);
   const user_id = users?.user_id;
 
@@ -56,11 +58,14 @@ const AnswersAndSubmit = () => {
           },
         }
       );
-      setResponseMessage(response.data.msg);
+      
+      // Show success toast notification
+      toast.success(response.data.msg);
       setNewAnswer(""); // Clear the input field
       fetchAnswers(); // Fetch answers again to update the list
     } catch (error) {
-      setResponseMessage(error.response?.data?.msg || "An unexpected error occurred.");
+      // Show error toast notification
+      toast.error(error.response?.data?.msg || "An unexpected error occurred.");
     }
   };
 
@@ -68,11 +73,8 @@ const AnswersAndSubmit = () => {
 
   return (
     <div>
-
       <div className={Classes.answer_container}>
-        {responseMessage && (
-          <p className={Classes.response_message}>{responseMessage}</p>
-        )}
+        <h3>Answers From The Community</h3>
 
         <form onSubmit={handleSubmit} className={Classes.answer_form}>
           <textarea
@@ -87,7 +89,6 @@ const AnswersAndSubmit = () => {
         </form>
       </div>
 
-      <h3>Answers From The Community</h3>
       {error ? (
         <p>No Answer Could Be Found!</p>
       ) : (
@@ -103,8 +104,11 @@ const AnswersAndSubmit = () => {
           ))}
         </ul>
       )}
+
+      <ToastContainer position="top-right" autoClose={5000} hideProgressBar={false} closeOnClick pauseOnHover draggable />
     </div>
   );
 };
 
 export default AnswersAndSubmit;
+

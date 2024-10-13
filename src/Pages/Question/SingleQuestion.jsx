@@ -51,10 +51,7 @@ const SingleQuestion = () => {
 
   return (
     <div className={classes.single_question_container}>
-      <div className={classes.questionHeader}>
-        <p>QUESTION</p>
-      </div>
-      <div>
+           <div>
         <div className={classes.uestion_title_wrapper}>
           <span className={classes.question_title}>
             <h2>
