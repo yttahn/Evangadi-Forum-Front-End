@@ -22,56 +22,44 @@ function Login() {
     navigate("/"); // Adjust the route as needed
   };
 
-  async function handleSubmit(e) {
-    e.preventDefault();
+  
+async function handleSubmit(e) {
+  e.preventDefault();
 
-    // Client-side validation
-    if (!email || !password) {
-      setErrorMessage("Please fill in all fields");
-      return;
-    }
-
-    try {
-      setProcessing(true);
-      setErrorMessage(""); // Clear previous error messages
-
-      const { data } = await axios.post("/users/login", { email, password });
-
-      localStorage.setItem("token", data.token);
-
-      // Show success toast notification
-      toast.success("Login successful!", {
-        position: "top-right",
-        autoClose: 3000, // Close after 3 seconds
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-
-      // Redirect to the desired page after login
-      navigate("/");
-
-    } catch (error) {
-      console.error("Login failed: ", error.response || error.message);
-      setErrorMessage(
-        error?.response?.data?.msg || "An unexpected error occurred"
-      );
-
-      // Show error toast notification
-      toast.error("Login failed!", {
-        position: "top-right",
-        autoClose: 3000, // Close after 3 seconds
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-      });
-
-    } finally {
-      setProcessing(false);
-    }
+  if (!email || !password) {
+    setErrorMessage("Please fill in all fields");
+    return;
   }
+
+  try {
+    setProcessing(true);
+    setErrorMessage(""); // Clear previous error messages
+
+    const { data } = await axios.post("/users/login", { email, password });
+
+    localStorage.setItem("token", data.token);
+
+    // Navigate to home with state to indicate successful login
+    navigate("/", { state: { welcomeMessage: true } });
+
+  } catch (error) {
+    console.error("Login failed: ", error.response || error.message);
+    setErrorMessage(
+      error?.response?.data?.msg || "An unexpected error occurred"
+    );
+
+    toast.error(`${errorMessage}!`, {
+      position: "top-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
+  } finally {
+    setProcessing(false);
+  }
+}
 
   const handleIconToggle = () => {
     setIcon((prev) => (prev === eyeOff ? eye : eyeOff));
@@ -134,10 +122,7 @@ function Login() {
                 </span>
               </div>
             </div>
-            {errorMessage && (
-              <div className={classes.errorMessage}>{errorMessage}</div>
-            )}
-            <button
+           <button
               type="submit"
               className={classes.loginButton}
               disabled={processing}

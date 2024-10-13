@@ -1,8 +1,11 @@
+
 import { useState } from "react";
 import axios from "../../axios/axiosConfig";
 import { Link, useNavigate } from "react-router-dom";
-import classes from "./Register.module.css";
 import { FaEyeSlash, FaEye } from "react-icons/fa";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import classes from "./Register.module.css";
 
 function Register() {
   const navigate = useNavigate();
@@ -14,8 +17,6 @@ function Register() {
   const [password, setPassword] = useState("");
 
   const [showPassword, setShowPassword] = useState(false);
-  const [error, setError] = useState("");
-  const [requireInformation, setRequireInformation] = useState("");
 
   const handleJoinNowClick = () => {
     navigate("/"); // Adjust the route as needed
@@ -25,14 +26,14 @@ function Register() {
     e.preventDefault();
 
     if (!username || !firstname || !lastname || !email || !password) {
-      setRequireInformation("Please provide all required information!");
+      toast.error("Please provide all required information!", {
+        position: "top-right", // Change to string
+        autoClose: 3000,
+      });
       return;
     }
 
     try {
-      setRequireInformation("");
-      setError(""); // Clear any previous error messages
-
       await axios.post("/users/register", {
         username,
         firstname,
@@ -41,13 +42,21 @@ function Register() {
         password,
       });
 
-      alert("Registration successful!");
+      toast.success("Registration successful!", {
+        position: "top-right", // Change to string
+        autoClose: 3000,
+      });
+
       navigate("/login");
     } catch (error) {
-      console.error("Registration failed: ", error.response);
-      setError(
-        error?.response?.data?.msg || "Registration failed, please try again."
-      );
+      let errorMessage = "Registration failed, please try again.";
+      if (error.response && error.response.data && error.response.data.msg) {
+        errorMessage = error.response.data.msg;
+      }
+      toast.error(errorMessage, {
+        position: "top-right", // Change to string
+        autoClose: 3000,
+      });
     }
   }
 
@@ -57,6 +66,8 @@ function Register() {
 
   return (
     <section className={classes.RegisterContainer}>
+      {/* Ensure ToastContainer is properly positioned */}
+      <ToastContainer key="toast-key" />
       <div className={classes.container}>
         <section className={classes.registration_section}>
           <form className={classes.RegisterForm} onSubmit={handleSubmit}>
@@ -67,12 +78,6 @@ function Register() {
                 Sign in
               </Link>
             </p>
-            <div className={classes.RequireInformation}>
-              {error && <p className={classes.errorMessage}>{error}</p>}
-              {requireInformation && !error && (
-                <p className={classes.errorMessage}>{requireInformation}</p>
-              )}
-            </div>
 
             <input
               type="text"
@@ -114,7 +119,7 @@ function Register() {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className={classes.RegisterFormHeader} // Ensure consistent styling
+                className={classes.RegisterFormHeader}
                 required
               />
               <div
@@ -178,3 +183,4 @@ function Register() {
 }
 
 export default Register;
+

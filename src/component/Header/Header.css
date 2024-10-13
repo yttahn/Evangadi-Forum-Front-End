@@ -1,0 +1,131 @@
+/* Header.css */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  padding: 30px 76px 40px 36px;
+  background-color: #fff;
+  position: fixed;
+  height: 80px; /* Fix the height */
+  transition: background-color 0.3s ease, height 0.3s ease; /* Transition for height change */
+}
+
+.navbar.scrolled {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 4px #516b9829;
+  height: 60px; /* Navbar becomes smaller when scrolled */
+}
+
+.logo {
+  font-size: 24px;
+  margin-left: 94px;
+}
+
+.logo img {
+  width: 30vh;
+}
+
+.sign-in {
+  margin-right: 15px;
+  font-weight: 400;
+  display: inline-block;
+  text-decoration: none;
+  padding: 14px 40px;
+  color: white !important;
+  background-image: linear-gradient(45deg, #fe6b02, #febfbf);
+  font-size: 14px;
+  border-radius: 30px 0 30px 30px;
+  transition: all 0.8s ease !important;
+  border: none;
+  margin-bottom: 20px;
+  justify-content: center;
+
+}
+
+.sign-in:hover {
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  gap: 15px;
+  margin-left: 350px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: rgb(34, 33, 33);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #fe6b02;
+}
+
+/* Add a top margin to the main content to account for the fixed navbar */
+main {
+  margin-top: 80px; /* Equal to the height of the navbar */
+}
+
+/* Adjust margin based on the scrolled state of the navbar */
+.navbar.scrolled + main {
+  margin-top: 60px; /* Smaller margin when the navbar height changes */
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 60px; /* Adjust height for smaller screens */
+  }
+
+  .logo {
+    margin-left: 20px;
+  }
+
+  .nav-links {
+    margin: 0;
+    gap: 10px;
+    font-size: 14px;
+  }
+
+  .sign-in {
+    margin-right: 20px;
+  }
+
+  main {
+    margin-top: 60px; /* Adjust main content margin for smaller navbar */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo img {
+    width: 120px;
+  }
+
+  .nav-links {
+    font-size: 12px;
+    gap: 8px;
+  }
+
+  .navbar.main {
+    padding: 10px;
+  }
+
+  .sign-in {
+    font-size: 12px;
+    padding: 3px 15px;
+  }
+
+  main {
+    margin-top: 60px; /* Adjust for smaller screen navbar */
+  }
+}

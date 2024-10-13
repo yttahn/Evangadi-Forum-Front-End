@@ -1,15 +1,33 @@
-import React, { useContext } from "react";
+
+import React, { useContext, useEffect } from "react";
 import { AppState } from "../../App";
 import classes from "./home.module.css";
 import discussion from "../../image/discution.jpeg";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Header from "../../component/Header/Header";
+import { ToastContainer, toast } from "react-toastify";
 
 function Home() {
   const { users } = useContext(AppState); // Access users from context
   const navigate = useNavigate(); // For navigating to other routes
-  console.log("**")
-  console.log(users)
+  const location = useLocation(); // Get location object to check for state
+
+  useEffect(() => {
+    // Check if state contains a welcomeMessage flag and users object is populated
+    if (location.state?.welcomeMessage && users?.username) {
+      toast.success(`Welcome back, ${users.username}!`, {
+        position: "top-right",
+        autoClose: 3000, // Close after 3 seconds
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+
+      // Optionally clear the state after showing the toast
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state, users?.username]); // Ensure that the toast only shows when username is available
 
   // Function to handle Join Now button click
   const handleJoinNowClick = () => {
@@ -18,8 +36,6 @@ function Home() {
       navigate("/login"); // Redirect to login if user is not logged in
       return;
     }
-
-    console.log("Current user state:", users.username);
 
     navigate("/askquestion"); // Navigate if user exists
   };
@@ -36,7 +52,6 @@ function Home() {
             on projects, and enhance your professional growth. Explore the
             features that can elevate your tech journey today.
           </p>
-          {/* Button changes text based on users state */}
           <button onClick={handleJoinNowClick} className={classes.join_now}>
             {users?.user_id && users?.username ? "Ask a Question" : "Join Now"}
           </button>
@@ -44,12 +59,13 @@ function Home() {
         <div className={classes.image_content}>
           <img src={discussion} alt="student discussion" />
         </div>
-        {/* Safely display the username if available */}
-        {users?.username && <h2>Welcome, {users.username}!</h2>}
       </div>
 
+      {/* Toast Container for displaying notifications */}
+      <ToastContainer />
     </div>
   );
 }
 
 export default Home;
+

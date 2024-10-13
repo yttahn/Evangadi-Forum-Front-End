@@ -1,5 +1,6 @@
 /* Container for the entire registration section */
 .RegisterContainer {
+  margin-top: 75px;
   display: flex;
   flex-direction: column;
   align-items: center;

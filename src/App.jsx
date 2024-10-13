@@ -85,9 +85,10 @@ function App() {
             element={<QuestionWithAnswers />}
           />
         </Routes>
-        <Footer />
 
       </div>
+
+        <Footer />
     </AppState.Provider>
   );
 }
