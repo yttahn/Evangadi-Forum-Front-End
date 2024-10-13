@@ -1,10 +1,9 @@
 import React from "react";
 import Classes from "../privacyPolicy/privacyPolicy.module.css";
-import Header from "../Header/Header";
 function PrivacyPolicy() {
   return (
     <>
-    <Header/>
+    
       <div className={Classes.container}>
         <h1 className={Classes.heading}>Privacy Policy</h1>
         <h2 className={Classes.subheading}>Privacy Policy of evangadi.com</h2>

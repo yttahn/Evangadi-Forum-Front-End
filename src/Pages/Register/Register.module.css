@@ -1,155 +1,166 @@
-/* Container for the whole registration section */
+/* Container for the entire registration section */
 .RegisterContainer {
   display: flex;
-  justify-content: center;  /* Horizontally center */
-  align-items: center;  /* Vertically center */
-  padding: 20px;
-  background-image: url('../../image/bg-svg.svg');
-  background-size: cover;  /* Ensure the image covers the entire area */
-  background-repeat: no-repeat;
-  background-position: center center;
-  min-height: 100vh; /* Ensures the section takes full viewport height */
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f8f9fa; /* Light background for better visibility */
 }
 
-/* Main container for the form and text */
+/* Inner container for form and text */
 .container {
   display: flex;
-  justify-content: space-between; /* Align form and text side by side */
-  max-width: 1200px; /* Prevents container from being too wide */
-  width: 100%; /* Full width */
-  padding: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
 }
 
-/* Information area for error messages */
-.RequireInformation {
-  margin-left: 140px;
-}
-
-/* Form container styling */
-.RegisterForm {
-  background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent background */
-  padding: 40px;
+/* Section for registration form */
+.registration_section {
+  flex: 1;
+  padding: 2rem;
+  background-color: white;
   border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  width: 400px; /* Fixed width for consistency */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style for the registration form */
+.RegisterForm {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center the content inside the form */
 }
 
-/* Input fields styling */
+/* Header style */
+h3 {
+  margin-bottom: 1rem;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Link style for login */
+.loginLink {
+  color: #007bff; /* Bootstrap primary color */
+  text-decoration: none;
+}
+
+/* Flex container for first and last name inputs */
+.form_flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Style for inputs */
 .RegisterFormHeader {
-  width: 100%; /* Take full width */
-}
-
-/* Input styling */
-.RegisterFormHeader input {
-  width: 100%; /* Full width of the form */
-  padding: 12px;
-  margin-top: 10px;
+  padding: 10px 40px 10px 10px; /* Right padding for the eye icon in password */
+  margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  box-sizing: border-box;
+  width: 100%; /* Full width for both email and password inputs */
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
+  position: relative;
 }
 
-/* Flexbox for first name and last name */
-.form_flex {
-  display: flex;
-  justify-content: space-between; /* Space between inputs */
-  gap: 10px;
+/* Adjust for first and last name input fields */
+.form_flex input {
+  flex: 1;
+  margin-right: 10px; /* Space between fields */
 }
 
-/* Button for registration form */
+.form_flex input:last-child {
+  margin-right: 0; /* No margin on the last child */
+}
+
+/* Error message style */
+.errorMessage {
+  color: red;
+  margin: 10px 0; /* Margin for better spacing */
+}
+
+/* Privacy policy and account information styles */
+.PrivacyPolicy {
+  margin-top: 1rem;
+}
+
+.red_link, .red_linkAccount {
+  color: #d9534f; /* Bootstrap danger color */
+  text-decoration: none;
+}
+
+.red_link:hover, .red_linkAccount:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+/* Button styles */
 .agree {
-  background-color: #007bff;
-  color: #fff;
+  padding: 12px;
+  background-color: #f07109; /* Orange color for the button */
+  color: white;
   border: none;
-  padding: 15px;
   border-radius: 5px;
   cursor: pointer;
-  width: 100%; /* Full width for the button */
-  font-size: 18px;
-  margin-top: 20px;
+  font-size: 16px;
+  margin-top: 10px;
 }
 
 .agree:hover {
-  background-color: #0056b3;
+  background-color: #007bff; /* Darker orange on hover */
 }
 
-/* Link styling */
-a {
-  margin-top: 10px;
-  color: #ff6600;
-  font-size: 14px;
-  text-decoration: none;
-  text-align: center;
+/* Styles for password visibility toggle */
+.eyeIcon {
+  position: absolute;
+  top: 50%;
+  right: 15px; /* Adjust this value for spacing from the right edge */
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: #ffa600; /* Default color */
+  transition: color 0.2s ease; /* Smooth transition for hover effect */
 }
 
-a:hover {
-  text-decoration: underline;
+.eyeIcon:hover {
+  color: #fc7609; /* Darker color on hover */
 }
 
-/* Right-side text content styling */
+/* About section styles */
 .text_content_reg {
-  max-width: 700px; /* Prevents text content from being too wide */
-  padding: 30px;
+  flex: 1;
+  padding: 2rem;
+  color: #555;
 }
 
 .text_content_reg h1 {
+  margin-bottom: 1rem;
   font-size: 32px;
   color: #b12b20;
-  margin-bottom: 20px;
 }
 
 .text_content_reg h2 {
-  color: #ff6600;
-  font-size: 22px;
+  margin-bottom: 1rem;
 }
 
 .text_content_reg p {
-  color: #333;
-  font-size: 16px;
-  line-height: 1.6;
-  margin-bottom: 30px;
+  line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
-/* "How it works" button */
 .how_it_work_reg {
-  background-color: #ff6600;
-  color: #fff;
+  padding: 10px 15px;
+  background-color: #fc7609; /* Bootstrap info color */
+  color: white;
   border: none;
-  padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.how_it_work_reg:hover {
-  background-color: #cc5200;
-}
-
-/* Responsive behavior for smaller screens */
+/* Responsive design */
 @media (max-width: 768px) {
-  .RegisterContainer {
-    flex-direction: column; /* Stack vertically on smaller screens */
-    justify-content: flex-start;
-    align-items: center;
-    padding: 20px;
+  .form_flex {
+    flex-direction: column; /* Stack inputs vertically on smaller screens */
   }
 
-  .container {
-    flex-direction: column; /* Stack the form and text */
-    align-items: center; /* Center contents */
-  }
-
-  .RegisterForm {
-    width: 90%; /* Responsive width for smaller screens */
-    max-width: 400px; /* Limit max width */
-  }
-
-  .text_content_reg {
-    margin-top: 30px;
-    padding: 20px; /* Adjust padding for smaller screens */
-    width: 100%; /* Full width */
+  .form_flex input {
+    margin-right: 0; /* No right margin */
+    margin-bottom: 10px; /* Space between stacked inputs */
   }
 }
