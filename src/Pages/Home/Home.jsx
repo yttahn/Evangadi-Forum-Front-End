@@ -4,7 +4,6 @@ import classes from "./home.module.css";
 import discussion from "../../image/discution.jpeg";
 import { useNavigate } from "react-router-dom";
 import Header from "../../component/Header/Header";
-import Footer from "../../component/Footer/Footer";
 
 function Home() {
   const { users } = useContext(AppState); // Access users from context
@@ -48,7 +47,7 @@ function Home() {
         {/* Safely display the username if available */}
         {users?.username && <h2>Welcome, {users.username}!</h2>}
       </div>
-      <Footer />
+
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-import classes from "../Header/header.module.css";
+import "./Header.css"; // Using the CSS format from Page 1
 import logo from "../../image/evangadi-logo.png";
 import { AppState } from "../../App";
 import { useNavigate, Link } from "react-router-dom";
@@ -38,49 +38,33 @@ function Header() {
   }, []);
 
   return (
-    <header className={isScrolled ? classes.scrolled : ""}>
-      <div className={classes.header_container}>
-        <div className="logo">
-          {isUserLoggedIn ? (
-            <Link to="/">
-              <img src={logo} alt="Evangadi Logo" width={100} />
-            </Link>
-          ) : (
-            <img src={logo} alt="Your Logo" width={100} />
-          )}
-        </div>
-        <div className={classes.Sign_in}>
-          <ul className={classes.nav_links}>
-            <li>
-             {isUserLoggedIn ? (
-               <Link to={"/questions"} className={classes.nav_button}>
-                Home
-              </Link>
-
-          ) : (
-               <Link to={"/"} className={classes.nav_button}>
-                Home
-              </Link>
-
-          )}
-
-                         </li>
-            <li>
-              <Link to={"/howitworks"} className={classes.nav_button}>
-                How it works
-              </Link>
-            </li>
-            {isUserLoggedIn ? (
-              <button onClick={handleLogout}>Sign Out</button>
-            ) : (
-              <Link to="/login">
-                <button>Sign In</button>
-              </Link>
-            )}
-          </ul>
-        </div>
+    <nav className={`navbar ${isScrolled ? "scrolled" : "main"}`}>
+      <div className="logo">
+        {isUserLoggedIn ? (
+          <Link to="/">
+            <img src={logo} alt="Evangadi Logo" />
+          </Link>
+        ) : (
+          <img src={logo} alt="Your Logo" />
+        )}
       </div>
-    </header>
+
+      {isUserLoggedIn ? (
+        <>
+          <div className="nav-links">
+            <Link to={isUserLoggedIn ? "/questions" : "/"}>Home</Link>
+            <Link to="/howitworks">How It Works</Link>
+          </div>
+          <button className="sign-in" onClick={handleLogout}>
+            SIGN OUT
+          </button>
+        </>
+      ) : (
+        <Link to="/login">
+          <button className="sign-in">SIGN IN</button>
+        </Link>
+      )}
+    </nav>
   );
 }
 

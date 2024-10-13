@@ -1,0 +1,49 @@
+.termsContainer {
+  max-width: 800px; /* Restrict the width of the content */
+  margin: 0 auto; /* Center the container */
+  padding: 20px; /* Add some padding */
+  font-family: Arial, sans-serif; /* Use a readable font */
+  background-color: #f9f9f9; /* Light background color for better readability */
+  border: 1px solid #ddd; /* Light border around the content */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.heading {
+  font-size: 2.5rem; /* Large heading */
+  color: #333; /* Dark color for headings */
+  text-align: center; /* Center the main heading */
+  margin-bottom: 20px; /* Spacing below the heading */
+}
+
+.subheading {
+  font-size: 1.5rem; /* Medium size for subheading */
+  color: #555; /* Slightly lighter color */
+  text-align: center; /* Center the subheading */
+  margin-bottom: 30px; /* Spacing below the subheading */
+}
+
+.strong {
+  font-size: 1.2rem; /* Slightly larger text for emphasis */
+  color: #000; /* Strong color for emphasis */
+  margin: 10px 0; /* Margin above and below */
+}
+
+.paragraph {
+  font-size: 1rem; /* Standard font size for paragraphs */
+  line-height: 1.6; /* Improved readability */
+  color: #444; /* Darker color for text */
+  margin-bottom: 20px; /* Spacing between paragraphs */
+}
+
+.section {
+  margin-bottom: 30px; /* Spacing between sections */
+}
+
+.sectionHeading {
+  font-size: 1.5rem; /* Size for section headings */
+  color: #333; /* Dark color for section headings */
+  margin-bottom: 10px; /* Spacing below section headings */
+  border-bottom: 2px solid #ddd; /* Underline for section headings */
+  padding-bottom: 5px; /* Padding below the underline */
+}

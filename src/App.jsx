@@ -5,13 +5,16 @@ import Home from "./Pages/Home/Home.jsx";
 import AskQuestion from "./Pages/Question/AskQuestion.jsx";
 import LoginPage from "./component/SignUp/LoginPage.jsx";
 import RegisterPage from "./component/SignUp/RegisterPage.jsx";
-import Header from "./component/Header/Header.jsx";
+// import Header from "./component/Header/Header.jsx";
 import Footer from "./component/Footer/Footer.jsx";
 import QuestionDetail from "./Pages/Question/QuestionDetail.jsx";
 import QuestionWithAnswers from "./Pages/Question/QuestionWithAnswers.jsx"
 import Howitworks from "./component/Howitworks/Howitworks.jsx";
 import ForgotPassword from "./Pages/LogIn/ForgotPassword.jsx";
 import AllQuestions from "./Pages/Question/AllQuestions.jsx"
+import PrivacyPolicy from "./component/privacyPolicy/PrivacyPolicy.jsx";
+import TermsOfService from "./component/termsOfService/TermsOfService.jsx";
+import Header from "./component/Header/Header.jsx";
 
 // Create a context for the application state (user, etc.)
 export const AppState = createContext();
@@ -59,21 +62,29 @@ function App() {
   return (
     // Provide user state to the whole app via context
     <AppState.Provider value={{ users, setUser }}>
-      <div className="container-fluid">
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/howitworks" element={<Howitworks />} />
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/forgot-password" element={<ForgotPassword />} />
-        <Route path="/register" element={<RegisterPage />} />
-        {/* Protect the AskQuestion route; user must be logged in */}
-        <Route
-          path="/askquestion"
-          element={users ? <AskQuestion /> : <LoginPage />}
-        />
-         <Route path="/questions" element={<AllQuestions />} />
-        <Route path="/question/:question_id" element={<QuestionWithAnswers />} />
-      </ Routes>
+      <Header />
+
+      <div className="container-fluid" style={{ paddingTop: '40px' }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/howitworks" element={<Howitworks />} />
+          <Route path="/PrivacyPolicy" element={<PrivacyPolicy />} />
+          <Route path="/TermsOfService" element={<TermsOfService />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/register" element={<RegisterPage />} />
+          {/* Protect the AskQuestion route; user must be logged in */}
+          <Route
+            path="/askquestion"
+            element={users ? <AskQuestion /> : <LoginPage />}
+          />
+          <Route path="/questions" element={<AllQuestions />} />
+          <Route
+            path="/question/:question_id"
+            element={<QuestionWithAnswers />}
+          />
+        </Routes>
+        <Footer />
       </div>
     </AppState.Provider>
   );
