@@ -60,23 +60,17 @@ function Register() {
       <div className={classes.container}>
         <section className={classes.registration_section}>
           <form className={classes.RegisterForm} onSubmit={handleSubmit}>
-            <h3>Join the network</h3>
+            <h3>Join the Network</h3>
             <p>
               Already have an account?{" "}
-              <span>
-                <Link
-                  className="text-decoration-none"
-                  style={{ color: "orange", cursor: "pointer" }}
-                  to="/login"
-                >
-                  Sign in
-                </Link>
-              </span>
+              <Link className={classes.loginLink} to="/login">
+                Sign in
+              </Link>
             </p>
             <div className={classes.RequireInformation}>
-              {error && <p style={{ color: "red" }}>{error}</p>}
+              {error && <p className={classes.errorMessage}>{error}</p>}
               {requireInformation && !error && (
-                <p style={{ color: "red" }}>{requireInformation}</p>
+                <p className={classes.errorMessage}>{requireInformation}</p>
               )}
             </div>
 
@@ -120,6 +114,7 @@ function Register() {
                 placeholder="Password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
+                className={classes.RegisterFormHeader} // Ensure consistent styling
                 required
               />
               <div
@@ -139,17 +134,17 @@ function Register() {
             <div className={classes.PrivacyPolicy}>
               <p>
                 I agree to the{" "}
-                <Link to="#" className={classes.red_link}>
+                <Link to="/PrivacyPolicy" className={classes.red_link}>
                   privacy policy
                 </Link>{" "}
                 and{" "}
-                <Link to="#" className={classes.red_link}>
+                <Link to="/TermsOfService" className={classes.red_link}>
                   terms of service
                 </Link>
                 .
               </p>
               <p className={classes.Account}>
-                <Link to={"/login"} className={classes.red_linkAccount}>
+                <Link to="/login" className={classes.red_linkAccount}>
                   Already have an account?
                 </Link>
               </p>
