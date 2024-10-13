@@ -1,0 +1,175 @@
+.body-container {
+  position: relative; /* Make the container relative */
+  padding: 20px; /* Optional padding for the container */
+  color: white; /* Change text color for contrast */
+  min-height: 100vh; /* Ensure the container takes at least full viewport height */
+  overflow: hidden; /* Prevent overflow from any absolute children */
+}
+
+.background-image {
+  position: absolute; /* Position the image behind other content */
+  top: 0;
+  left: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  object-fit: cover; /* Maintain aspect ratio */
+  z-index: -1; /* Send the image behind other content */
+}
+
+h1 {
+  padding: 130px;
+  font-size: 55px;
+  color: #222; /* Heading color */
+  font-weight: 700;
+  margin-top: 100px; /* Move heading down */
+  margin-bottom: -120px;
+}
+
+.front-image {
+  position: absolute; /* Position in front of the background */
+  max-width: 550px; /* Set a max width for the front image */
+  margin-left: 850px;
+  margin-top: 340px;
+  display: block; /* Ensure it's treated as a block element */
+  z-index: 1; /* Keep it above the background */
+}
+
+.body-container p {
+  padding-left: 130px;
+  display: block;
+  color: black;
+  margin: 35px 0;
+  font-size: 17px;
+  line-height: 1.6;
+  width: 40.5%; /* Width of the paragraph */
+  text-align: justify; /* Justify text */
+  z-index: 1; /* Ensure the paragraph is above the background */
+}
+
+.join-button {
+  display: inline-block;
+  text-decoration: none;
+  padding: 15px 80px;
+  color: #fff;
+  background-image: linear-gradient(45deg, #fe6b02, #febfbf);
+  font-size: 16px;
+  border-radius: 30px 0 30px 30px;
+  transition: all 0.5s ease; /* Smooth transition */
+  border: none;
+  margin-left: 90px;
+}
+
+.join-button:hover {
+  border-radius: 30px;
+  transform: scale(1.05); /* Slightly scale up */
+  cursor: pointer; /* Change cursor to pointer */
+}
+
+h1,
+p,
+.join-button,
+.front-image {
+  opacity: 0; /* Start as invisible */
+  transform: translateY(20px); /* Move elements slightly down */
+  animation-fill-mode: forwards; /* Keep the final state of the animation */
+}
+
+h1 {
+  animation: fadeInUp 0.5s 0.2s ease forwards; /* Delay for h1 */
+}
+
+p {
+  animation: fadeInUp 0.5s 1s ease forwards; /* Delay for paragraph */
+}
+
+.join-button {
+  animation: fadeInUp 0.5s 1.5s ease forwards; /* Delay for button */
+}
+
+.front-image {
+  animation: fadeInUp 0.5s 2s ease forwards; /* Delay for image */
+}
+
+/* Keyframe animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive styles */
+
+/* Medium screens (tablets and small desktops) */
+
+@media (max-width: 768px) {
+  .body-container {
+    padding: 10px;
+    text-align: center;
+    height: auto;
+    min-height: auto;
+  }
+
+  h1 {
+    padding: 10px;
+    font-size: 36px;
+    margin-top: 30px;
+    margin-bottom: 0;
+  }
+
+  .body-container p {
+    padding-left: 0;
+    width: 90%;
+    margin: 20px auto;
+    font-size: 15px;
+  }
+
+  .front-image {
+    position: relative;
+    max-width: 90%;
+    margin: 20px auto;
+    display: block;
+  }
+
+  .join-button {
+    margin: 20px auto;
+    padding: 10px 50px;
+    font-size: 14px;
+    display: block;
+  }
+}
+
+/* Small screens (phones) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 28px;
+    padding: 10px;
+    margin-top: 20px;
+  }
+
+  .body-container p {
+    font-size: 14px;
+    width: 90%;
+    line-height: 1.4;
+  }
+
+  .front-image {
+    max-width: 80%;
+    margin: 10px auto;
+  }
+
+  .join-button {
+    padding: 8px 30px;
+    font-size: 12px;
+  }
+}
+
+
+
+
+
+
